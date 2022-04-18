@@ -12,7 +12,6 @@ struct RecipesListView: View {
     let category: MainInformation.Category
     
     var body: some View {
-        NavigationView {
             List {
                 ForEach(recipes) { recipe in
                     NavigationLink(recipe.mainInformation.name, destination: RecipeDetailView(recipe: recipe))
@@ -21,8 +20,6 @@ struct RecipesListView: View {
                 .foregroundColor(AppColor.foreground)
             }
             .navigationTitle(navigationTitle)
-            
-        }
     }
 }
 

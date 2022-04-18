@@ -27,6 +27,7 @@ struct RecipeCategoryView: View {
             }
             .navigationTitle("Categories")
         }
+        .navigationViewStyle(.stack)
     }
 }
 
