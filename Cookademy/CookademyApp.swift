@@ -11,7 +11,7 @@ import SwiftUI
 struct CookademyApp: App {
     var body: some Scene {
         WindowGroup {
-            RecipeCategoryView()
+            MainTabView()
         }
     }
 }

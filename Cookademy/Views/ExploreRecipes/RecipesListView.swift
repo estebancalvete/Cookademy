@@ -9,7 +9,8 @@ import SwiftUI
 
 struct RecipesListView: View {
     @EnvironmentObject var recipeData: RecipeData
-    let category: MainInformation.Category
+    
+    let viewStyle: ViewStyle
     
     @State private var isPresenting = false
     @State private var newRecipe = Recipe()
@@ -43,6 +44,7 @@ struct RecipesListView: View {
                         }
                         ToolbarItem(placement: .confirmationAction) {
                             if newRecipe.isValid {
+                                // TODO: Pre-set favorite when viewStyle is in favorite
                                 Button("Add") {
                                     recipeData.add(recipe: newRecipe)
                                     isPresenting = false
@@ -57,12 +59,27 @@ struct RecipesListView: View {
 }
 
 extension RecipesListView {
+    enum ViewStyle {
+        case favorites
+        case singleCategory(MainInformation.Category)
+    }
+    
     private var recipes: [Recipe] {
-        recipeData.recipes(for: category)
+        switch viewStyle {
+        case let .singleCategory(category):
+            return recipeData.recipes(for: category)
+        case .favorites:
+            return recipeData.favoriteRecipes
+        }
     }
     
     private var navigationTitle: String {
-        "\(category.rawValue) Recipes"
+        switch viewStyle {
+        case let .singleCategory(category):
+            return "\(category.rawValue) Recipes"
+        case .favorites:
+            return "Favorite Recipes"
+        }
     }
     
     //Function that returns a binding to the Recipe using the index founder from the ViewModel
@@ -77,7 +94,7 @@ extension RecipesListView {
 struct RecipesListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            RecipesListView(category: .breakfast)
+            RecipesListView(viewStyle: .singleCategory(.breakfast))
                 .environmentObject(RecipeData())
         }
     }
