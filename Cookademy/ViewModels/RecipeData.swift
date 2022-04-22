@@ -25,4 +25,14 @@ class RecipeData: ObservableObject {
             recipes.append(recipe)
         }
     }
+    
+    //With this function the ViewModel is able to provide the index for a given Recipe
+    func index(of recipe: Recipe) -> Int? {
+        for i in recipes.indices {
+            if recipes[i].id == recipe.id {
+                return i
+            }
+        }
+        return nil
+    }
 }
