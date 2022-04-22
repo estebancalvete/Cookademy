@@ -7,9 +7,15 @@
 
 import SwiftUI
 
-struct ModifyIngredientView: View {
+struct ModifyIngredientView: ModifyComponentView {
     @Binding var ingredient: Ingredient
     let createAction: ((Ingredient) -> Void)
+    
+    init(component: Binding<Ingredient>, createAction: @escaping (Ingredient) -> Void) {
+        self._ingredient = component
+        self.createAction = createAction
+    }
+    
     @Environment(\.presentationMode) private var mode
     
     private let listBackgroundColor = AppColor.background
@@ -32,7 +38,7 @@ struct ModifyIngredientView: View {
                 Spacer()
                 Text(ingredient.unit.rawValue)
             }) {
-                ForEach(Ingredient.Unit.allCases, id: \.self) { unit in
+                ForEach(Component.Unit.allCases, id: \.self) { unit in
                     Text(unit.rawValue)
                 }
             }
@@ -65,9 +71,7 @@ struct ModifyIngredientView_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationView {
-            ModifyIngredientView(ingredient: $emptyIngredient) { ingredient in
-                print(ingredient)
-            }
+            ModifyIngredientView(component: $emptyIngredient) { _ in return }
         }
     }
 }

@@ -24,6 +24,7 @@ struct ModifyMainInformationView: View {
                     .listRowBackground(listBackgroundColor)
             }
             Picker(selection: $mainInformation.category, label: HStack {
+                // TODO: show the mentioned HStack correctly
                 Text("Category")
                 Spacer()
                 Text(mainInformation.category.rawValue)
