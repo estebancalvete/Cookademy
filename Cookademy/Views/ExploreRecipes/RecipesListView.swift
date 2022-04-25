@@ -44,8 +44,10 @@ struct RecipesListView: View {
                         }
                         ToolbarItem(placement: .confirmationAction) {
                             if newRecipe.isValid {
-                                // TODO: Pre-set favorite when viewStyle is in favorite
                                 Button("Add") {
+                                    if case .favorites = viewStyle {
+                                        newRecipe.isFavorite = true
+                                    }
                                     recipeData.add(recipe: newRecipe)
                                     isPresenting = false
                                 }
