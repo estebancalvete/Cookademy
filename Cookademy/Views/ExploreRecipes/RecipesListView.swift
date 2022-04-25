@@ -15,13 +15,16 @@ struct RecipesListView: View {
     @State private var isPresenting = false
     @State private var newRecipe = Recipe()
     
+    private let listBackgroundColor = AppColor.background
+    private let listTextColor = AppColor.foreground
+    
     var body: some View {
         List {
             ForEach(recipes) { recipe in
                 NavigationLink(recipe.mainInformation.name, destination: RecipeDetailView(recipe: binding(for: recipe)))
             }
-            .listRowBackground(AppColor.background)
-            .foregroundColor(AppColor.foreground)
+            .listRowBackground(listBackgroundColor)
+            .foregroundColor(listTextColor)
         }
         .navigationTitle(navigationTitle)
         .toolbar(content: {

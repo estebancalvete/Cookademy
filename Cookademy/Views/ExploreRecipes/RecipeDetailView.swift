@@ -11,6 +11,9 @@ struct RecipeDetailView: View {
     @Binding var recipe: Recipe //We make it binding to be able to pass the current recipe to the ModifyRecipeView
     @State private var isPresenting = false //To track when ModifyRecipeView sheet should be presented
     
+    private let listBackgroundColor = AppColor.background
+    private let listTextColor = AppColor.foreground
+    
     var body: some View {
         VStack {
             HStack {
@@ -30,10 +33,10 @@ struct RecipeDetailView: View {
                     ForEach(recipe.ingredients.indices, id: \.self) { index in
                         let ingredient = recipe.ingredients[index]
                         Text(ingredient.description)
-                            .foregroundColor(AppColor.foreground)
+                            .foregroundColor(listTextColor)
                     }
                 }
-                .listRowBackground(AppColor.background)
+                .listRowBackground(listBackgroundColor)
                 Section(header: Text("Directions")) {
                     ForEach(recipe.directions.indices, id: \.self) { index in
                         let direction = recipe.directions[index]
@@ -41,10 +44,10 @@ struct RecipeDetailView: View {
                             Text("\(index + 1). ").bold()
                             Text("\(direction.isOptional ? "(Optional) " : "")" + "\(direction.description)")
                         }
-                        .foregroundColor(AppColor.foreground)
+                        .foregroundColor(listTextColor)
                     }
                 }
-                .listRowBackground(AppColor.background)
+                .listRowBackground(listBackgroundColor)
             }
         }
         .navigationTitle(recipe.mainInformation.name)
