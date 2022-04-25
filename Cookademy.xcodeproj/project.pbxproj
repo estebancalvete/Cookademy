@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B1845982816A82200B70090 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1845972816A82200B70090 /* SettingsView.swift */; };
 		5B18B0F4280810AA00987C1B /* CookademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18B0F3280810AA00987C1B /* CookademyApp.swift */; };
 		5B18B0F6280810AA00987C1B /* RecipesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18B0F5280810AA00987C1B /* RecipesListView.swift */; };
 		5B18B0F8280810AD00987C1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B18B0F7280810AD00987C1B /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B1845972816A82200B70090 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5B18B0F0280810AA00987C1B /* Cookademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B18B0F3280810AA00987C1B /* CookademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookademyApp.swift; sourceTree = "<group>"; };
 		5B18B0F5280810AA00987C1B /* RecipesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				5B85EE30280DB93E00FFEC2E /* ExploreRecipes */,
 				5B85EE31280DB94900FFEC2E /* ModifyRecipes */,
 				5BB9B3E6281307B70045EA07 /* MainTabView.swift */,
+				5B1845972816A82200B70090 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				5BB9B3C92812AEBA0045EA07 /* ModifyDirectionView.swift in Sources */,
 				5B85EE33280DB9C000FFEC2E /* ModifyRecipeView.swift in Sources */,
 				5BA53EF82811AB100053A904 /* ModifyComponentsView.swift in Sources */,
+				5B1845982816A82200B70090 /* SettingsView.swift in Sources */,
 				5BB9B3E7281307B70045EA07 /* MainTabView.swift in Sources */,
 				5B18B0F6280810AA00987C1B /* RecipesListView.swift in Sources */,
 				5B18B0F4280810AA00987C1B /* CookademyApp.swift in Sources */,
