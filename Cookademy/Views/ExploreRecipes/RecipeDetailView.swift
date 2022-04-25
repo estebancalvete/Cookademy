@@ -12,6 +12,7 @@ struct RecipeDetailView: View {
     
     @Binding var recipe: Recipe //We make it binding to be able to pass the current recipe to the ModifyRecipeView
     @State private var isPresenting = false //To track when ModifyRecipeView sheet should be presented
+    @EnvironmentObject private var recipeData: RecipeData
     
     @AppStorage("listBackgroundColor") private var listBackgroundColor = AppColor.background
     @AppStorage("listTextColor") private var listTextColor = AppColor.foreground
@@ -84,6 +85,9 @@ struct RecipeDetailView: View {
                         }
                     }
                     .navigationTitle("Edit Recipe")
+            }
+            .onDisappear {
+                recipeData.saveRecipes()
             }
         }
     }
